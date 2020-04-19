@@ -1,0 +1,14 @@
+use SMSAuthentication
+declare @i int = 50501, @no varchar(50)
+while(@i <=50525)
+begin
+set @no= right('0000000000'+ CAST(@i as varchar),10)
+insert into tblRandomNo(RandomNo, VisibleNo)
+values( @no, @no)
+set @i=@i+1
+set @no= ''
+print @i
+end
+
+--Select * from tblRandomNo   29761
+--Truncate table tblRandomNo

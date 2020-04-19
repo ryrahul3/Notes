@@ -1,0 +1,2 @@
+Select Cast(ROW_NUMBER()  OVER (ORDER BY VisibleNo)+000000 as nvarchar(20)) + ','+VisibleNo + ','+Newenc as 'ID,SEQNO,SCRATCHCODE' from tblScratch where cast (SUBSTRING(VisibleNo,2,9)as int) 
+between  48450001    and  48950000    order by VisibleNo

@@ -1,0 +1,39 @@
+ROW_NUMBER() Function without Partition By clause
+-----------------------------------------------------
+Syntax
+ROW_NUMBER () OVER ([PARTITION BY value_exp, ... [ n ]] ORDER BY_clause) 
+
+Example
+select *, ROW_NUMBER() over(order by EmpName) as rownumber from Employe 
+
+
+ROW_NUMBER() Function with Partition By clause
+-----------------------------------------------
+
+Example
+Select *, ROW_NUMBER() over(partition by Empname order by Empname ) as rownumber from Employe
+
+
+Rank() Function
+---------------
+This function will assign a unique value to each distinct Row, but it leaves a group between the groups.
+
+Example
+SELECT EmpName, EmpSalary ,rank() over(order by EmpName) as rankID from Employe 
+
+
+Dense_Rank() Funcation
+---------------------
+Dense_Rank() Funcation is similar to Rank with only difference, this will not leave gaps between groups.
+
+Example
+SELECT EmpName ,EmpSalary ,DENSE_RANK() over(order by EmpName) as DrankID from Employe
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+select * from tblRequisitionMaster where RequisitionNo='PIN/SR/18-19/3930'
+select * from tblRequisitionDetails where RequisitionId=10968
+select * from tblCartonDetails where CartonId in ('C-3251636834868054910998','C-3251636834868054910999')
+select * from tblCartonTransactionLog where CartonId in ('C-3251636834868054910998','C-3251636834868054910999')
+select sum(cdd.ItemQty)-SUM(cdd.pickedqty) from tblCartonDetails cdd where ItemId=1157
+select sum(isnull(ItemPicked,0)) from tblpickuplog where RequisitionId=10968
